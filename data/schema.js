@@ -32,7 +32,8 @@ const typeDefs = `
     }
 
     type Query {
-        getFriend(id: ID): Friend
+        getOneFriend(id: ID): Friend
+        getAliens: [Alien]
     }
 
     input FriendInput {
@@ -41,7 +42,7 @@ const typeDefs = `
         lastName: String
         gender: Gender
         age: Int
-        languarge: String
+        language: String
         email: String
         contacts: [ContactInput]
     }
