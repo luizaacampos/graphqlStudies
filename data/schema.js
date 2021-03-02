@@ -8,8 +8,16 @@ const typeDefs = `
         lastName: String
         gender: Gender
         age: Int
+        language: String
         email: String
         contacts: [Contact]
+    }
+
+    type Alien {
+        id: ID
+        firstName: String
+        lastName: String
+        planet: String
     }
 
     type Contact {
@@ -29,10 +37,11 @@ const typeDefs = `
 
     input FriendInput {
         id: ID
-        firstName: String!
+        firstName: String
         lastName: String
         gender: Gender
         age: Int
+        languarge: String
         email: String
         contacts: [ContactInput]
     }
@@ -44,9 +53,11 @@ const typeDefs = `
 
     type Mutation {
         createFriend(input: FriendInput): Friend
+        updateFriend(input: FriendInput): Friend
+        deleteFriend(id: ID!): String
     }
 `
 
-const schema = makeExecutableSchema(typeDefs, resolvers)
+const schema = makeExecutableSchema({ typeDefs, resolvers })
 
 export { schema }
